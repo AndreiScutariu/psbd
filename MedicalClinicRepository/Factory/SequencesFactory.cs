@@ -12,7 +12,8 @@ namespace MedicalClinicRepository.Factory
         {
             SequenceNames = new Dictionary<Type, string>
             {
-                { typeof(User), "MC_ROLE_SEQ" }
+                { typeof(User), "MC_ROLE_SEQ" },
+                { typeof(UserRole), "USER_ROLE_SEQ" }
             };
         }
 
