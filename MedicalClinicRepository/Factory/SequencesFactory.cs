@@ -1,5 +1,4 @@
-﻿using MedicalClinicRepository.DbMappings;
-using MedicalClinicRepository.Entities;
+﻿using MedicalClinicRepository.Entities;
 using System;
 using System.Collections.Generic;
 
