@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using MedicalClinic.Models.User;
+﻿using MedicalClinic.Models.User;
 using MedicalClinic.Utils.ModelDtoMapper;
 using MedicalClinicHandler.Handlers;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace MedicalClinic.Controllers
 {
