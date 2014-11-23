@@ -6,6 +6,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using MedicalClinicHandler.Handlers;
 using Ninject;
+using DependencyResolver = MedicalClinic.App_Start.DependencyResolver;
 
 namespace MedicalClinic
 {
@@ -27,7 +28,7 @@ namespace MedicalClinic
         {
             var kernel = new StandardKernel();
             kernel.Bind<IUserHandler>().To<UserHandler>();
-            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+            System.Web.Mvc.DependencyResolver.SetResolver(new DependencyResolver(kernel));
         }
     }
 }
