@@ -1,0 +1,34 @@
+﻿#body {
+    clear: both;
+    padding-bottom: 35px;
+}
+
+.clear-fix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.main-content {
+    padding-left: 10px;
+    padding-top: 30px;
+}
+
+.content-wrapper {
+    padding-top: 20px; 
+}
+
+.errorMessage {
+    color: #fb4742;
+    margin-right: 15px;
+    float: right;
+    font-size: 0.8em;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.float-right {
+    float: right;
+}

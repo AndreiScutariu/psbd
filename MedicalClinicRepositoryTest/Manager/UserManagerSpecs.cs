@@ -1,4 +1,5 @@
-﻿using MedicalClinicRepository.Entities;
+﻿using System;
+using MedicalClinicRepository.Entities;
 using MedicalClinicRepository.Managers;
 using MedicalClinicRepository.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -60,19 +61,32 @@ namespace MedicalClinicRepositoryTest.Manager
         {
             private readonly UserManager _userManager = new UserManager();
             private readonly UserRoleManager _userRoleManager = new UserRoleManager();
+            private readonly SpecilizationManager _specilizationManager = new SpecilizationManager();
+            private readonly StaffSpecializationManager _staffSpecializationManager = new StaffSpecializationManager();
+
             private User _user;
+            private StaffSpecialization _staffSpecialization;
             private readonly UserRole _administrator;
+            private readonly Specialization _specialization1;
 
             public WhenGettingAnUser()
             {
                 _administrator = _userRoleManager.GetById((int)Roles.Admin);
+                _specialization1 = _specilizationManager.GetById((int) Specializations.Specializare1);
                 _user = new User
                     {
                         FirstName = "Andrei",
                         LastName = "Scutariu",
                         Email = "andrei_s4u@yahoo.com",
                         Password = "andpass",
-                        UserRole = _administrator
+                        UserRole = _administrator,
+                    };
+
+                _staffSpecialization = new StaffSpecialization
+                    {
+                        CreatedDate = DateTime.Now,
+                        Specialization = _specialization1,
+                        User = _user
                     };
             }
 
@@ -84,6 +98,20 @@ namespace MedicalClinicRepositoryTest.Manager
                      _userManager.Save(_user);
                     tx.Commit();
                 }
+
+                _user.StaffSpecializations.Add(_staffSpecialization);
+                using (var tx = _staffSpecializationManager.Session.BeginTransaction())
+                {
+                    _staffSpecializationManager.Save(_staffSpecialization);
+                    tx.Commit();
+                }
+
+                //Clear the session cache objects
+                _userManager.Session.Clear();
+                _userManager.Session.Evict(_user);
+                _staffSpecializationManager.Session.Evict(_staffSpecialization);
+
+                _staffSpecialization = _staffSpecializationManager.GetById(_staffSpecialization.Id);
                 _user = _userManager.GetById(_user.Id);
             }
 
@@ -96,12 +124,24 @@ namespace MedicalClinicRepositoryTest.Manager
             [TestMethod]
             public void ThenHisRoleIsAdministrator()
             {
-                Assert.IsTrue(_user.UserRole == _administrator);
+                Assert.IsTrue(_user.UserRole.Id == _administrator.Id);
+            }
+
+            [TestMethod]
+            public void ThenHisSpecializationsIsCorrectlyLoaded()
+            {
+                Assert.IsTrue(_user.StaffSpecializations.Count > 0);
+                Assert.IsTrue(_user.StaffSpecializations[0].Id > (int)Specializations.Specializare1);
             }
 
             [TestCleanup]
             public void Cleanup()
             {
+                using (var tx = _staffSpecializationManager.Session.BeginTransaction())
+                {
+                    _staffSpecializationManager.Delete(_staffSpecialization);
+                    tx.Commit();
+                }
                 using (var tx = _userManager.Session.BeginTransaction())
                 {
                     _userManager.Delete(_user);

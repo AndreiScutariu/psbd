@@ -53,6 +53,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Manager\AppointmentManagerSpecs.cs" />
+    <Compile Include="Manager\MedicalResultManagerSpecs.cs" />
+    <Compile Include="Manager\SpecializationManagerSpecs.cs" />
+    <Compile Include="Manager\PacientManagerSpecs.cs" />
     <Compile Include="Manager\UserManagerSpecs.cs" />
     <Compile Include="Manager\UserRoleManagerSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

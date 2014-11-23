@@ -48,19 +48,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbMappings\AppointmentMap.cs" />
     <Compile Include="DbMappings\BaseMap.cs" />
+    <Compile Include="DbMappings\DiagnosticMap.cs" />
+    <Compile Include="DbMappings\MedicalResultDiagnosticMap.cs" />
+    <Compile Include="DbMappings\MedicalResultMap.cs" />
+    <Compile Include="DbMappings\PacientMap.cs" />
+    <Compile Include="DbMappings\SpecializationMap.cs" />
+    <Compile Include="DbMappings\StaffSpecializationMap.cs" />
     <Compile Include="DbMappings\UserMap.cs" />
     <Compile Include="DbMappings\UserRoleMap.cs" />
+    <Compile Include="Entities\Appointment.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\Diagnostic.cs" />
+    <Compile Include="Entities\MedicalResult.cs" />
+    <Compile Include="Entities\MedicalResultDiagnostic.cs" />
+    <Compile Include="Entities\Pacient.cs" />
+    <Compile Include="Entities\Specialization.cs" />
+    <Compile Include="Entities\StaffSpecialization.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Factory\ManagerFactory.cs" />
+    <Compile Include="Managers\AppointmentManager.cs" />
+    <Compile Include="Managers\MedicalResultManager.cs" />
+    <Compile Include="Managers\MedicalResultDiagnosticManager.cs" />
+    <Compile Include="Managers\DiagnosticManager.cs" />
+    <Compile Include="Managers\StaffSpecializationManager.cs" />
+    <Compile Include="Managers\SpecilizationManager.cs" />
+    <Compile Include="Managers\PacientManager.cs" />
     <Compile Include="Managers\UserRoleManager.cs" />
-    <Compile Include="Managers\IManagerBase.cs" />
     <Compile Include="Managers\ManagerBase.cs" />
     <Compile Include="Factory\OracleSessionFactory.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\UserRole.cs" />
     <Compile Include="Factory\SequencesFactory.cs" />
+    <Compile Include="Utils\Specializations.cs" />
     <Compile Include="Utils\Roles.cs" />
   </ItemGroup>
   <ItemGroup>

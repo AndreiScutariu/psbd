@@ -8,8 +8,8 @@ namespace MedicalClinicRepository.DbMappings
     {
         public UserRoleMap()
         {
-            Table("USERROLE");
-            Map(x => x.RoleName, "ROLENAME");
+            Table("USER_ROLE");
+            Map(x => x.RoleName, "ROLE_NAME");
             HasMany(x => x.Users).KeyColumns.Add("ROLE_ID", mapping => mapping.Name("ROLE_ID"));
         }
     }

@@ -2,7 +2,11 @@
 
 namespace MedicalClinicRepository.Managers
 {
-    public class UserManager : ManagerBase<User>
+    public interface IUserManager : IManagerBase<User>
+    {
+    }
+
+    public class UserManager : ManagerBase<User>, IUserManager
     {
     }
 }
