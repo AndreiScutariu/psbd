@@ -14,7 +14,6 @@ namespace MedicalClinic.Controllers
 
         public void Logout()
         {
-            
         }
     }
 }

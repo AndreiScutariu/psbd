@@ -2,7 +2,6 @@
 using System.Linq;
 using MedicalClinicHandler.Dto;
 using MedicalClinicHandler.DtoEntityMapper;
-using MedicalClinicRepository.Entities;
 using MedicalClinicRepository.Managers;
 
 namespace MedicalClinicHandler.Handlers

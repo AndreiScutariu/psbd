@@ -11,9 +11,9 @@ namespace MedicalClinic.Controllers
     {
         private readonly IUserHandler _userHandler;
 
-        public AdminController()
+        public AdminController(IUserHandler userHandler)
         {
-            _userHandler = new UserHandler();
+            _userHandler = userHandler;
         }
 
         public ActionResult Index()
@@ -28,9 +28,10 @@ namespace MedicalClinic.Controllers
             return View(modelList);
         }
 
+        //TODO
         public bool CanUseThisUsername(string email)
         {
-            return email != "andrei_s4u@yahoo.com";
+            return true;
         }
 
         public ActionResult AddUser()

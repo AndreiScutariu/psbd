@@ -4,6 +4,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MedicalClinicHandler.Handlers;
+using Ninject;
 
 namespace MedicalClinic
 {
@@ -18,6 +20,14 @@ namespace MedicalClinic
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+            RegisterDependencyResolver();
+        }
+
+        private void RegisterDependencyResolver()
+        {
+            var kernel = new StandardKernel();
+            kernel.Bind<IUserHandler>().To<UserHandler>();
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }
     }
 }
