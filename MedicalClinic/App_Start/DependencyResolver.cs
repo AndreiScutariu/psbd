@@ -6,10 +6,10 @@ using Ninject.Parameters;
 
 namespace MedicalClinic.App_Start
 {
-    public class NinjectDependencyResolver : IDependencyResolver
+    public class DependencyResolver : IDependencyResolver
     {
         private readonly IKernel _kernel;
-        public NinjectDependencyResolver(IKernel kernel)
+        public DependencyResolver(IKernel kernel)
         {
             _kernel = kernel;
         }

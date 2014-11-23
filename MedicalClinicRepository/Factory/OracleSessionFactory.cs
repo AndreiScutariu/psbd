@@ -11,7 +11,7 @@ namespace MedicalClinicRepository.Factory
         private static ISession _session;
 
         //TODO put connection string in config file
-        private const string ConnectionString = "Data Source=localhost:1521/xe;User ID=CLINIC;Password=clinic;Unicode=True";
+        private const string ConnectionString = "Data Source=192.168.0.52:1521/xe;User ID=CLINIC;Password=clinic;Unicode=True";
 
         static OracleSessionFactory()
         {
