@@ -11,9 +11,5 @@ namespace MedicalClinic.Controllers
         {
             return View();
         }
-
-        public void Logout()
-        {
-        }
     }
 }
