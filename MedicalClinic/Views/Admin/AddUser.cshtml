@@ -80,7 +80,7 @@
         </div>
 
         <div class="modal-footer">
-            <button data-dismiss="modal" aria-hidden="true" class="btn btn-default">Renunta</button>
+            @Html.ActionLink("Renunta", "Index", "Admin", null, new { @class = "btn btn-default" })
             <button type="submit" id="approve-btn" class="btn btn-primary">Salveaza</button>
         </div>
     }
