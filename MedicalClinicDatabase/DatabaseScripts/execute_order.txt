@@ -1,0 +1,10 @@
+﻿create_user_role_table.sql
+create_specialization_table.sql
+create_staff_table.sql
+create_staff_spec_table.sql
+create_diagnostic_table.sql
+create_pacient_table.sql
+create_appointment_table.sql
+create_medical_result_table.sql
+create_medical_result_diag_table.sql
+create_seq.sql
