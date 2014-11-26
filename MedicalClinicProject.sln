@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalClinic", "MedicalCli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalClinicBuisnessLogic", "MedicalClinicHandler\MedicalClinicBuisnessLogic.csproj", "{DAF94A46-94D9-4F94-9422-76E5E75F0D80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalClinicDatabase", "MedicalClinicDatabase\MedicalClinicDatabase.csproj", "{B35039C3-4B7A-4FC3-9333-66BCEA5F69AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{DAF94A46-94D9-4F94-9422-76E5E75F0D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAF94A46-94D9-4F94-9422-76E5E75F0D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAF94A46-94D9-4F94-9422-76E5E75F0D80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B35039C3-4B7A-4FC3-9333-66BCEA5F69AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B35039C3-4B7A-4FC3-9333-66BCEA5F69AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B35039C3-4B7A-4FC3-9333-66BCEA5F69AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B35039C3-4B7A-4FC3-9333-66BCEA5F69AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
