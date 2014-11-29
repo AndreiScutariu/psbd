@@ -28,6 +28,7 @@ namespace MedicalClinic
         {
             var kernel = new StandardKernel();
             kernel.Bind<IUserHandler>().To<UserHandler>();
+            kernel.Bind<IRoleHandler>().To<RoleHadler>();
             System.Web.Mvc.DependencyResolver.SetResolver(new DependencyResolver(kernel));
         }
     }

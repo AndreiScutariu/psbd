@@ -17,7 +17,6 @@ namespace MedicalClinic.Models.User
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
                             @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                             @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Trebuie sa introduceti o adresa de email valida.")]
-        [Remote("CanUseThisUsername", "Admin", ErrorMessage = "Aceasta adresa de email este deja folosita.")]
         [Display(Name = "Adresa de Email")]
         public string Email { get; set; }
 
@@ -36,5 +35,13 @@ namespace MedicalClinic.Models.User
 
         public string UserRole { get; set; }
         public int CurrentIndex { get; set; }
+        public string FullName 
+        {
+            get { return string.Format("{0} {1}", FirstName, LastName); }
+        }
+        public string Parrent
+        {
+            get { return @"-"; }
+        }
     }
 }

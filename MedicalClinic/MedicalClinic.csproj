@@ -45,6 +45,12 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="Grid.Mvc.Ajax">
+      <HintPath>..\packages\Grid.Mvc.Ajax.1.0.24\lib\Grid.Mvc.Ajax.dll</HintPath>
+    </Reference>
+    <Reference Include="GridMvc">
+      <HintPath>..\packages\Grid.Mvc.Redux.1.0.2\lib\GridMvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
@@ -192,8 +198,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,8 +215,18 @@
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap\paper\bootstrap.css" />
+    <Content Include="Content\bootstrap\paper\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\spacelab\bootstrap.css" />
+    <Content Include="Content\bootstrap\spacelab\bootstrap.min.css" />
     <Content Include="Content\bootstrap\superhero\bootstrap.css" />
     <Content Include="Content\bootstrap\superhero\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\yeti\bootstrap.css" />
+    <Content Include="Content\bootstrap\yeti\bootstrap.min.css" />
+    <Content Include="Content\grid\Gridmvc.css" />
+    <Content Include="Content\grid\gridmvc.datepicker.css" />
+    <Content Include="Content\grid\gridmvc.datepicker.min.css" />
+    <Content Include="Content\ladda-bootstrap\ladda-themeless.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -278,6 +292,14 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\gridmvc-ext.js" />
+    <Content Include="Scripts\gridmvc.customwidgets.js" />
+    <Content Include="Scripts\gridmvc.js" />
+    <Content Include="Scripts\gridmvc.lang.fr.js" />
+    <Content Include="Scripts\gridmvc.lang.ru.js" />
+    <Content Include="Scripts\gridmvc.min.js" />
+    <Content Include="Scripts\gridmvc.min.js.map" />
+    <Content Include="Grid.Mvc.Ajax.readme" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-1.11.1.js" />
     <Content Include="Scripts\jquery-1.11.1.min.js" />
@@ -291,7 +313,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\ladda-bootstrap\ladda.min.js" />
+    <Content Include="Scripts\ladda-bootstrap\spin.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\URI.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -309,6 +334,9 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Admin\AddUser.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Shared\_AjaxGridPager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

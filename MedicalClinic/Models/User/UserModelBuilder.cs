@@ -20,7 +20,7 @@ namespace MedicalClinic.Models.User
 
         public void DeleteUser(int userId)
         {
-            _userHandler.DeleteUser(userId);
+            _userHandler.DeleteById(userId);
         }
     }
 }

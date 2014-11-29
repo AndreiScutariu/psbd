@@ -15,7 +15,9 @@ namespace MedicalClinicHandler.DtoEntityMapper
 
         public static UserDto GetDto(User user)
         {
-            return Mapper.Map<User, UserDto>(user);
+            var userDto = Mapper.Map<User, UserDto>(user);
+            userDto.UserRole = RoleMapper.GetDto(user.UserRole);
+            return userDto;
         }
 
         public static User GetEntity(UserDto userDto)
