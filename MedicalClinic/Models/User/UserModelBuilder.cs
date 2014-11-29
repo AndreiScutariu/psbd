@@ -17,5 +17,10 @@ namespace MedicalClinic.Models.User
             var userDto = _userHandler.SaveUser(UserMapper.GetDto(userModel));
             return UserMapper.GetModel(userDto);
         }
+
+        public void DeleteUser(int userId)
+        {
+            _userHandler.DeleteUser(userId);
+        }
     }
 }

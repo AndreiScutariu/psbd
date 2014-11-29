@@ -10,6 +10,7 @@ namespace MedicalClinicHandler.Handlers
     {
         UserDto SaveUser(UserDto userDto);
         IEnumerable<UserDto> GetAllUsers();
+        void DeleteUser(int userId);
     }
 
     public class UserHandler : IUserHandler
@@ -35,6 +36,11 @@ namespace MedicalClinicHandler.Handlers
         public IEnumerable<UserDto> GetAllUsers()
         {
             return _userManager.GetAll().Select(UserMapper.GetDto);
+        }
+
+        public void DeleteUser(int userId)
+        {
+            _userManager.DeleteById(userId);
         }
     }
 }

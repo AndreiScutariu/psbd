@@ -52,6 +52,7 @@
     <Content Include="DatabaseScripts\create_staff_spec_table.sql" />
     <Content Include="DatabaseScripts\create_staff_table.sql" />
     <Content Include="DatabaseScripts\create_user_role_table.sql" />
+    <Content Include="DatabaseScripts\delete_user_sp.sql" />
     <Content Include="DatabaseScripts\execute_order.txt" />
   </ItemGroup>
   <ItemGroup>

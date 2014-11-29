@@ -3,10 +3,8 @@ using System.Web.Mvc;
 
 namespace MedicalClinic.Models.User
 {
-    public class UserModel
+    public class UserModel : BaseModel
     {
-        public int Id { get; set; }
-
         [Required(ErrorMessage = "Prenumele este obligatoriu!")]
         [Display(Name = "Prenume")]
         public string FirstName { get; set; }

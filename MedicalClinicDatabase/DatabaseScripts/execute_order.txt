@@ -8,3 +8,4 @@ create_appointment_table.sql
 create_medical_result_table.sql
 create_medical_result_diag_table.sql
 create_seq.sql
+delete_user_sp.sql

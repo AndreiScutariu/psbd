@@ -149,5 +149,51 @@ namespace MedicalClinicRepositoryTest.Manager
                 }
             }
         }
+        
+        [TestClass]
+        public class WhenAddingAndDeletingAnUser
+        {
+            private readonly UserManager _userManager = new UserManager();
+            private readonly UserRoleManager _userRoleManager = new UserRoleManager();
+            private readonly User _user;
+            private readonly UserRole _administrator;
+
+            private int _initialCountOfUsers;
+            private int _actualCountOfUsers;
+
+            public WhenAddingAndDeletingAnUser()
+            {
+                _administrator = _userRoleManager.GetById((int)Roles.Admin);
+                _user = new User
+                    {
+                        FirstName = "Andrei",
+                        LastName = "Scutariu",
+                        Email = "andrei_s4u@yahoo.com",
+                        Password = "andpass",
+                        UserRole = _administrator
+                    };
+            }
+
+            [TestInitialize]
+            public void Initialize()
+            {
+                using (var tx = _userManager.Session.BeginTransaction())
+                {
+                     _userManager.Save(_user);
+                    tx.Commit();
+                }
+
+                _initialCountOfUsers = _userManager.GetAll().Count;
+                _userManager.DeleteById(_user.Id);
+                _userManager.Session.Flush();
+                _actualCountOfUsers = _userManager.GetAll().Count;
+            }
+
+            [TestMethod]
+            public void ThenTheUserIsDeleted()
+            {
+                Assert.IsTrue(_initialCountOfUsers > _actualCountOfUsers);
+            }
+        }
     }
 }
