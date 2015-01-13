@@ -10,6 +10,7 @@ namespace MedicalClinicRepository.DbMappings
             Map(x => x.Description, "DESCRIPTION");
             Map(x => x.Solution, "SOLUTION");
             Map(x => x.Name, "NAME");
+            Map(x => x.SpecializationId, "SPECIALIZATION_ID");
         }
     }
 }

@@ -42,6 +42,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DatabaseScripts\confirm_user_spec_sp.sql" />
+    <Content Include="DatabaseScripts\populate_lkp_tables.sql" />
     <Content Include="DatabaseScripts\create_appointment_table.sql" />
     <Content Include="DatabaseScripts\create_diagnostic_table.sql" />
     <Content Include="DatabaseScripts\create_medical_result_diag_table.sql" />
@@ -52,8 +54,9 @@
     <Content Include="DatabaseScripts\create_staff_spec_table.sql" />
     <Content Include="DatabaseScripts\create_staff_table.sql" />
     <Content Include="DatabaseScripts\create_user_role_table.sql" />
-    <Content Include="DatabaseScripts\delete_user_sp.sql" />
+    <Content Include="DatabaseScripts\stored-procedures.sql" />
     <Content Include="DatabaseScripts\execute_order.txt" />
+    <Content Include="DatabaseScripts\triggers.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="database-design.pdf" />

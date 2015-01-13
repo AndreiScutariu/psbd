@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MedicalClinicRepository.Entities.Appointment" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAgAAAAAAAAAAAAAAgAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Entities\Appointment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Entities.BaseEntity">
+    <Position X="7.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\BaseEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Entities.Diagnostic">
+    <Position X="1" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAEAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Diagnostic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Entities.MedicalResult">
+    <Position X="3.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAIAAAAAAAAAQAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Entities\MedicalResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Entities.MedicalResultDiagnostic">
+    <Position X="0.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAQAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Entities\MedicalResultDiagnostic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Entities.Patient">
+    <Position X="2.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAQAAAAAQAQAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Entities\Patient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Entities.Specialization">
+    <Position X="5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Entities\Specialization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Entities.StaffSpecialization" Collapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAgAAAAAEA=</HashCode>
+      <FileName>Entities\StaffSpecialization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Entities.User">
+    <Position X="7.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAAgAAAAAAAQAAAQAgCAAAAAAAAAAg=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Entities.UserRole">
+    <Position X="5.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Entities\UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Factory.ManagerFactory" Collapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Factory\ManagerFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Factory.OracleSessionFactory" Collapsed="true">
+    <Position X="24.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAwACAAAAAAAAA=</HashCode>
+      <FileName>Factory\OracleSessionFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Factory.SequencesFactory" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Factory\SequencesFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Managers.AppointmentManager" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\AppointmentManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MedicalClinicRepository.Managers.DiagnosticManager" Collapsed="true">
+    <Position X="14.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\DiagnosticManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MedicalClinicRepository.Managers.ManagerBase&lt;T&gt;" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAABAAAAQAAAAAAAAAAAAEBAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Managers\ManagerBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MedicalClinicRepository.Managers.MedicalResultDiagnosticManager" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\MedicalResultDiagnosticManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MedicalClinicRepository.Managers.MedicalResultManager" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\MedicalResultManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MedicalClinicRepository.Managers.PatientManager" Collapsed="true">
+    <Position X="18.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\PatientManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MedicalClinicRepository.Managers.SpecilizationManager" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Managers\SpecilizationManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MedicalClinicRepository.Managers.StaffSpecializationManager" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\StaffSpecializationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalClinicRepository.Managers.UserManager" Collapsed="true">
+    <Position X="16.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAACAAAAAAAAAAAAACCAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\UserManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MedicalClinicRepository.Managers.UserRoleManager" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\UserRoleManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="MedicalClinicRepository.Managers.IAppointmentManager" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\AppointmentManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MedicalClinicRepository.Managers.IDiagnosticManager" Collapsed="true">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\DiagnosticManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MedicalClinicRepository.Managers.IManagerBase&lt;T&gt;" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAABAAAAQAAAAAAAAAAAAEBAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Managers\ManagerBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MedicalClinicRepository.Managers.IMedicalResultDiagnosticManager" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\MedicalResultDiagnosticManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MedicalClinicRepository.Managers.IMedicalResultManager" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\MedicalResultManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MedicalClinicRepository.Managers.IPatientManager" Collapsed="true">
+    <Position X="16.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\PatientManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MedicalClinicRepository.Managers.ISpecilizationManager" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Managers\SpecilizationManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MedicalClinicRepository.Managers.IStaffSpecializationManager" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\StaffSpecializationManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MedicalClinicRepository.Managers.IUserManager" Collapsed="true">
+    <Position X="14.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAACAAAAAAAAAAAAACCAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\UserManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MedicalClinicRepository.Managers.IUserRoleManager" Collapsed="true">
+    <Position X="18.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\UserRoleManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MedicalClinicRepository.Utils.Roles" Collapsed="true">
+    <Position X="21.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAQAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\Roles.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MedicalClinicRepository.Utils.Specializations" Collapsed="true">
+    <Position X="23" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\Specializations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

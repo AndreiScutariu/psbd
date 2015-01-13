@@ -8,6 +8,7 @@ namespace MedicalClinicRepository.DbMappings
         {
             Table("STAFF_SPECIALIZATION");
             Map(x => x.CreatedDate, "CREATED_DATE");
+            Map(x => x.Confirmed, "CONFIRMED");
             References(x => x.Specialization).Class<Specialization>().Columns("SPECIALIZATION_ID");
             References(x => x.User).Class<User>().Columns("MEDIC_ID");
         }

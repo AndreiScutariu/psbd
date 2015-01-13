@@ -1,0 +1,90 @@
+﻿@model IEnumerable<MedicalClinic.Models.Medic.UserModel>
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Medical Clinic";
+}
+
+<meta name="viewport" content="width=device-width" />
+<link href="@Url.Content("~/Content/grid/Gridmvc.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+<script src="@Url.Content("~/Scripts/gridmvc.customwidgets.js")" type="text/javascript"> </script>
+
+<script type="text/javascript">
+    $(function () {
+        pageGrids.usersGrid.addFilterWidget(new CustomersFilterWidget());
+    });
+    
+    $(document).ready(function () {
+        $('.deleteUser').on('click', function (e) {
+            var href = e.target.attributes['data-href'].value;
+            $('#deleteUserConfirmBtn').attr("href", href);
+        });
+        $('#deleteUserConfirmBtn').on('click', function (e) {
+            var href = e.target.attributes['href'].value;
+            document.location.href = href;
+        });
+    });
+
+</script>
+
+<div class="jumbotron">
+    @Html.ActionLink("Logout", "Logout", "Home", null, new { @class = "logout-admin" })
+    @Html.ActionLink("Help", "DownloadHelpFile", "Admin", null, new { @class = "help-admin" })
+    <p>Sunteti administratorul paginii. Puteti adauga, modifica sau sterge noi membri la personalul clinicii.</p>
+    @Html.ActionLink("Adauga un nou membru", "AddUser", "Admin", null, new { @class = "modal-link btn-primary btn" })
+    @if(@ViewBag.Notification == 1) 
+    {
+        @Html.ActionLink("Notificari", "Notification", "Admin", null, new { @class = "modal-link btn-primary btn" })
+    }
+</div>
+
+<div class="page-header">
+    <h4 id="tables">Staful activ al clinicii</h4>
+</div>
+
+@Html.Grid(Model).Named("usersGrid").Columns(columns =>
+{
+    columns.Add(u => u.CurrentIndex)
+        .Titled("#")
+        .Filterable(false);
+    columns.Add(u => u.FullName)
+        .Titled("Nume Intreg");
+    columns.Add(u => u.UserRole)
+        .Titled("Rol")
+        .SetFilterWidgetType("RoleFilter");
+    columns.Add(u => u.Email)
+        .Titled("Adresa de Email");
+    columns.Add(u => u.Parrent)
+        .Titled("Asitentul lui");
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .SetWidth(30)
+        .RenderValueAs(u =>
+            @<b>
+                @Html.ActionLink("Edit", "EditUser", new { userId = u.Id }, new { @class = "modal_link" })
+            </b>);
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .SetWidth(30)
+        .RenderValueAs(u =>
+            @<b>
+                <a href="#" class="deleteUser" data-href="@Url.Action("Delete", new { userId = u.Id })" data-toggle="modal" data-target="#deleteUser">Delete</a>
+            </b>);
+}).WithPaging(7).Sortable().Filterable().WithMultipleFilters()
+
+<div class="modal fade" id="deleteUser">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Sunteti sigur ca doriti sa stergeti acest membru din personalul clincii medicale?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Nu</button>
+                <a href="#" id="deleteUserConfirmBtn" class="btn btn-primary" data-dismiss="modal">Da</a>
+            </div>
+        </div>
+    </div>
+</div>

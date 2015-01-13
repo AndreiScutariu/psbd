@@ -1,0 +1,71 @@
+﻿@using System.Web.Mvc.Html
+@using MedicalClinic.Models.Medic.Patient
+@model MedicalClinic.Models.Medic.Appointment.AppointmentModel
+
+@{
+	ViewBag.Title = "Medical Clinic - Add User";
+}
+
+<script src="~/Content/jquery.ui.ufd-0.6/jquery.ui.ufd.js"></script>
+<link href="~/Content/jquery.ui.ufd-0.6/css/plain/plain.css" rel="stylesheet" />
+<link href="~/Content/jquery.ui.ufd-0.6/css/ufd-base.css" rel="stylesheet" />
+
+<link href="~/Content/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" />
+<script src="~/Scripts/datetimepicker/jquery.datetimepicker.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+	    $("select").addClass("form-control");
+	    $("select").attr("id", "PatientId");
+	    $("select").attr("name", "PatientId");
+	    
+	    $("#PatientId").ufd({ log: true });
+	    
+	    $("#datepicker").datetimepicker({
+	        dayOfWeekStart: 0,
+	        lang: 'ro',
+	        defaultTime: '09:00',
+	        step: 30,
+	        minTime: '09:00',
+	        maxTime: '18:00',
+	        format: 'm/d/Y H:i'
+	    });
+	});
+</script>
+@Scripts.Render("~/bundles/jqueryval")
+
+@Html.Partial("_Menu")
+
+<div class="page-header">
+	<h4 id="tables">Adauga programare</h4>
+</div>
+
+<div class="col-lg-12">
+	<div class="col-md-8 col-md-offset-2" id="formContent">
+		@using (Html.BeginForm("AddNewAppointment", "User"))
+		{
+			@Html.HiddenFor(m => m.Id)
+			@Html.TextBoxFor(m => m.AppointmentDate, new { @class = "form-control", @id = "datepicker",@placeholder = "Data programare" })
+			<span class="errorMessage">@Html.ValidationMessageFor(m => m.AppointmentDate) </span>
+			
+			<br />
+			
+			@Html.TextAreaFor(m => m.Description, new { @class = "form-control", @placeholder = "Descriere" })
+			<span class="errorMessage">@Html.ValidationMessageFor(m => m.Description) </span>
+	  
+			<div class="page-header">
+				<h5>Pacient</h5>
+			</div>
+			
+			@Html.DropDownListFor(m => m.PatientId, new SelectList(
+										PatientAndAppointmentHelper.GetAllPatientsSelectedList(),
+										"value",
+										"text",
+										2))
+			
+			<div class="modal-footer">
+				<button type="submit" id="approve-btn" class="btn btn-primary">Salveaza</button>
+			</div>
+		}
+	</div>
+</div>

@@ -1,0 +1,101 @@
+﻿@using MedicalClinic.Models.Medic.Appointment
+@model AppointmentDiagnosticModel
+
+
+<script src="~/Content/jquery.ui.ufd-0.6/jquery.ui.ufd.js"></script>
+<link href="~/Content/jquery.ui.ufd-0.6/css/plain/plain.css" rel="stylesheet" />
+<link href="~/Content/jquery.ui.ufd-0.6/css/ufd-base.css" rel="stylesheet" />
+
+<link href="~/Content/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" />
+<script src="~/Scripts/datetimepicker/jquery.datetimepicker.js"></script>
+
+<script type="text/javascript">
+
+    function getUrlParameter(sParam) {
+        var sPageUrl = window.location.search.substring(1);
+        var sUrlVariables = sPageUrl.split('&');
+        for (var i = 0; i < sUrlVariables.length; i++) {
+            var sParameterName = sUrlVariables[i].split('=');
+            if (sParameterName[0] == sParam) {
+                return sParameterName[1];
+            }
+        }
+        return -1;
+    }
+
+    $(document).ready(function () {
+        $("#DiagnosticId").addClass("form-control");
+        $("#DiagnosticId").ufd({ log: true });
+
+        $("#addDiagnostic").click(function () {
+            var appointmentId = getUrlParameter("appointmentId");
+            var diagId = $("#DiagnosticId option:selected").attr("value");
+            var userDescription = $("#Description").val();
+
+            if (diagId == undefined || diagId == "") {
+                alert("Selecteaza o optiune valida");
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("AddNewDiagnosticToPatient", "User")',
+                data: { appointmentId: appointmentId, diagnosticId: diagId, userDescription: userDescription },
+                success: function (data) {
+                    alert(data);
+                    window.location.reload();
+                }
+            });
+        });
+    });
+</script>
+
+@Html.Partial("_Menu")
+
+<div class="page-header">
+    <h4 id="tables">Nume pacient: <b>@Model.AppointmentModel.PatientModel.FullName</b> / @Model.AppointmentModel.FormatedTime - @Model.AppointmentModel.FormatedDate</h4>
+    <span class="badge">Email: @Model.AppointmentModel.PatientModel.Email</span> <span class="badge">Telefon: @Model.AppointmentModel.PatientModel.PhoneNumber</span> <span class="badge">Cnp : @Model.AppointmentModel.PatientModel.PersonalId </span>
+</div>
+
+<div class="page-header">
+    <h5>Diagnostice actuale</h5>
+</div>
+<ul class="list-group">
+    <li class="list-group-item"><b>Descrire consultatie anterioara: @Model.LastDescription</b><span class="badge"><b>@Model.CreatedDate</b></span></li>
+    @foreach (var diagnosticDto in Model.DiagnosticDtos)
+    {
+        <li class="list-group-item">
+            <span class="badge"><b>@diagnosticDto.Name</b></span>
+            @diagnosticDto.Description
+        </li>
+    }
+</ul>
+
+<div class="page-header">
+    <h5>Adauga un nou diagnostic</h5>
+</div>
+
+@Html.TextArea("Description", new { @class = "form-control", @placeholder = "Descriere" })
+<br />
+@Html.DropDownList("DiagnosticId", new SelectList(
+                    DiagnosticHelper.GetAllDiagnosticsForSpecializations(@Model.GetSpecIds),
+                    "value",
+                    "text",
+                    2))
+
+<div class="modal-footer">
+    <button id="addDiagnostic" class="btn btn-primary">Adauga</button>
+</div>
+
+<div class="page-header">
+    <h5>Mesaje de la alti medici</h5>
+</div>
+
+<ul class="list-group">
+    @foreach (var diagnosticDto in Model.MessageDtos)
+    {
+        <li class="list-group-item">
+            <span class="badge">@diagnosticDto.CreatedDate</span>
+            <b>@diagnosticDto.FromUserName</b> : @diagnosticDto.Message
+        </li>
+    }
+</ul>

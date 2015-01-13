@@ -10,7 +10,7 @@ namespace MedicalClinicRepository.DbMappings
             Map(x => x.Description, "DESCRIPTION");
             Map(x => x.AppointmentDate, "APPOINTMENT_DATE");
             References(x => x.User).Class<User>().Columns("USER_ID");
-            References(x => x.Pacient).Class<Pacient>().Columns("PACIENT_ID");
+            References(x => x.Patient).Class<Patient>().Columns("PACIENT_ID");
         }
     }
 }

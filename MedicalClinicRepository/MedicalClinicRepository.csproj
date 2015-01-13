@@ -50,31 +50,34 @@
   <ItemGroup>
     <Compile Include="DbMappings\AppointmentMap.cs" />
     <Compile Include="DbMappings\BaseMap.cs" />
+    <Compile Include="DbMappings\MessageEntityMap.cs" />
     <Compile Include="DbMappings\DiagnosticMap.cs" />
     <Compile Include="DbMappings\MedicalResultDiagnosticMap.cs" />
     <Compile Include="DbMappings\MedicalResultMap.cs" />
-    <Compile Include="DbMappings\PacientMap.cs" />
+    <Compile Include="DbMappings\PatientMap.cs" />
     <Compile Include="DbMappings\SpecializationMap.cs" />
     <Compile Include="DbMappings\StaffSpecializationMap.cs" />
     <Compile Include="DbMappings\UserMap.cs" />
     <Compile Include="DbMappings\UserRoleMap.cs" />
     <Compile Include="Entities\Appointment.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\MessageEntity.cs" />
     <Compile Include="Entities\Diagnostic.cs" />
     <Compile Include="Entities\MedicalResult.cs" />
     <Compile Include="Entities\MedicalResultDiagnostic.cs" />
-    <Compile Include="Entities\Pacient.cs" />
+    <Compile Include="Entities\Patient.cs" />
     <Compile Include="Entities\Specialization.cs" />
     <Compile Include="Entities\StaffSpecialization.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Factory\ManagerFactory.cs" />
     <Compile Include="Managers\AppointmentManager.cs" />
+    <Compile Include="Managers\MessagesManager.cs" />
     <Compile Include="Managers\MedicalResultManager.cs" />
     <Compile Include="Managers\MedicalResultDiagnosticManager.cs" />
     <Compile Include="Managers\DiagnosticManager.cs" />
     <Compile Include="Managers\StaffSpecializationManager.cs" />
     <Compile Include="Managers\SpecilizationManager.cs" />
-    <Compile Include="Managers\PacientManager.cs" />
+    <Compile Include="Managers\PatientManager.cs" />
     <Compile Include="Managers\UserRoleManager.cs" />
     <Compile Include="Managers\ManagerBase.cs" />
     <Compile Include="Factory\OracleSessionFactory.cs" />
@@ -86,7 +89,15 @@
     <Compile Include="Utils\Roles.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MedicalClinicExceptions\MedicalClinicExceptions.csproj">
+      <Project>{64292905-0361-4170-bdeb-84aa7e0ebf47}</Project>
+      <Name>MedicalClinicExceptions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

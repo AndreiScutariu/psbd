@@ -1,0 +1,65 @@
+﻿@using MedicalClinic.Models.Medic.Appointment
+@model AppointmentDiagnosticModel
+
+
+<script type="text/javascript">
+
+    function getUrlParameter(sParam) {
+        var sPageUrl = window.location.search.substring(1);
+        var sUrlVariables = sPageUrl.split('&');
+        for (var i = 0; i < sUrlVariables.length; i++) {
+            var sParameterName = sUrlVariables[i].split('=');
+            if (sParameterName[0] == sParam) {
+                return sParameterName[1];
+            }
+        }
+        return -1;
+    }
+
+    $(document).ready(function () {
+        $("#sendMessage").click(function () {
+           var toId = getUrlParameter("toId");
+           var message = $("#MessageId").val();
+           $.ajax({
+               url: '@Url.Action("SendMessage", "User")',
+               data: { toId: toId, message: message },
+               success: function (data) {
+                    alert(data);
+                    window.location.reload();
+               }
+           });
+        });
+    });
+</script>
+
+@Html.Partial("_Menu")
+
+<div class="page-header">
+    <h4 id="tables">Nume pacient: <b>@Model.AppointmentModel.PatientModel.FullName</b> / @Model.AppointmentModel.FormatedTime - @Model.AppointmentModel.FormatedDate</h4>
+    <span class="badge">Email: @Model.AppointmentModel.PatientModel.Email</span> <span class="badge">Telefon: @Model.AppointmentModel.PatientModel.PhoneNumber</span> <span class="badge">Cnp : @Model.AppointmentModel.PatientModel.PersonalId </span>
+</div>
+
+<div class="page-header">
+    <h5>Diagnostice actuale</h5>
+</div>
+<ul class="list-group">
+    <li class="list-group-item"><b>Descrire consultatie anterioara: @Model.LastDescription</b><span class="badge"><b>@Model.CreatedDate</b></span></li>
+    @foreach (var diagnosticDto in Model.DiagnosticDtos)
+    {
+        <li class="list-group-item">
+            <span class="badge"><b>@diagnosticDto.Name</b></span>
+            @diagnosticDto.Description
+        </li>
+    }
+</ul>
+
+<div class="page-header">
+    <h5>Trimite un mesaj</h5>
+</div>
+
+@Html.TextArea("MessageId", new { @class = "form-control", @placeholder = "Scrie un mesaj" })
+<br />
+
+<div class="modal-footer">
+    <button id="sendMessage" class="btn btn-primary">Trimite un mesaj</button>
+</div>

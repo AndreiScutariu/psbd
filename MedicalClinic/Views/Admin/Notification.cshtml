@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MedicalClinic.Models.Medic.UserModel>
+@{
+    ViewBag.Title = "Medical Clinic";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".smallButton").click(function () {
+            var specId = this.attributes["data-spec"].value;
+            var userId = this.attributes["data-user"].value;
+            $.ajax({
+                url: '@Url.Action("AddNewSpecializationForUser", "Admin")',
+                data: { userId: userId, specializationId: specId },
+                success: function(data) {
+                    alert(data);
+                    window.location.reload();
+                }
+            });
+        });
+    });
+</script>
+
+<div class="jumbotron">
+    <p>Notificari.</p>
+    @Html.ActionLink("Inapoi la pagina principala", "Home", "Admin", null, new { @class = "modal-link btn-primary btn" })
+</div>
+<div class="page-header">
+    <h4>Cereri pentru specializari noi depuse de personalul clinicii:</h4>
+    <ul class="list-group">
+        @foreach (var user in @Model)
+        {
+            <li class="list-group-item">
+                @foreach (var spec in user.Specialization)
+                {
+                    if (spec.Confirmed == 0)
+                    {
+                        <span class="badge">@spec.Description | <button data-user="@user.Id" data-spec="@spec.Id" class="smallButton">Accepta</button> </span>   
+                    }
+                }
+                @user.FullName
+            </li>
+        }
+    </ul>
+</div>

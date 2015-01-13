@@ -11,9 +11,9 @@ namespace MedicalClinic.App_Start
 
             routes.MapRoute(
                 "Default", 
-                "{controller}/{action}/{id}", 
-                new { controller = "Admin", action = "Index", id = UrlParameter.Optional
-            });
+                "{controller}/{action}", 
+                new { controller = "Home", action = "Login" }
+            );
         }
     }
 }

@@ -7,6 +7,6 @@ namespace MedicalClinicRepository.Entities
         public virtual string Description { get; set; }
         public virtual DateTime AppointmentDate { get; set; }
         public virtual User User { get; set; }
-        public virtual Pacient Pacient { get; set; }
+        public virtual Patient Patient { get; set; }
     }
 }

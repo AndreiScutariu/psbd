@@ -1,0 +1,18 @@
+CREATE OR REPLACE TRIGGER StaffSpecTrigger
+  BEFORE INSERT OR UPDATE OR DELETE ON STAFF_SPECIALIZATION
+BEGIN
+  update STAFF
+  set NOTIFICATION = 1
+  where ROLE_ID = 1;
+END;
+
+CREATE OR REPLACE TRIGGER ClearNotificationFlad
+  AFTER INSERT OR UPDATE OR DELETE ON STAFF_SPECIALIZATION
+DECLARE
+  unconfirmed number;
+BEGIN
+  select count(*) into unconfirmed from STAFF_SPECIALIZATION where CONFIRMED = 0;
+  if unconfirmed = 0 then
+    update STAFF set NOTIFICATION = 0 where ROLE_ID = 1;
+  end if;
+END;

@@ -4,7 +4,6 @@ namespace MedicalClinic.App_Start
 {
     public class BundleConfig
     {
-
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -25,7 +24,7 @@ namespace MedicalClinic.App_Start
 
             bundles.Add(new StyleBundle("~/Content/bootsrap").Include(
                         "~/Content/bootstrap/css/bootstrap.min.css",
-                        "~/Content/bootstrap/superhero/bootstrap.min.css"));
+                        "~/Content/bootstrap/paper/bootstrap.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
@@ -42,6 +41,9 @@ namespace MedicalClinic.App_Start
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(new StyleBundle("~/Content/themes/metro/css").Include(
+                        "~/Content/themes/metro/jquery-ui.css"));
         }
     }
 }

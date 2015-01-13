@@ -5,17 +5,18 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MedicalClinicRepositoryTest.Manager
 {
+    [TestClass]
     public class PacientManagerSpecs
     {
         [TestClass]
         public class WhenAddingNewPacient
         {
-            private readonly PacientManager _pacientManager = new PacientManager();
-            private readonly Pacient _pacient;
+            private readonly PatientManager _patientManager = new PatientManager();
+            private readonly Patient _patient;
 
             public WhenAddingNewPacient()
             {
-                _pacient = new Pacient
+                _patient = new Patient
                 {
                     FirstName = "Andrei",
                     LastName = "Scutariu",
@@ -29,9 +30,9 @@ namespace MedicalClinicRepositoryTest.Manager
             [TestInitialize]
             public void Initialize()
             {
-                using (var tx = _pacientManager.Session.BeginTransaction())
+                using (var tx = _patientManager.Session.BeginTransaction())
                 {
-                    _pacientManager.Save(_pacient);
+                    _patientManager.Save(_patient);
                     tx.Commit();
                 }
             }
@@ -39,15 +40,15 @@ namespace MedicalClinicRepositoryTest.Manager
             [TestMethod]
             public void ThenIsSavedInDatatabase()
             {
-                Assert.IsTrue(_pacient.Id > 0);
+                Assert.IsTrue(_patient.Id > 0);
             }
 
             [TestCleanup]
             public void Cleanup()
             {
-                using (var tx = _pacientManager.Session.BeginTransaction())
+                using (var tx = _patientManager.Session.BeginTransaction())
                 {
-                    _pacientManager.Delete(_pacient);
+                    _patientManager.Delete(_patient);
                     tx.Commit();
                 }
             }
@@ -56,12 +57,12 @@ namespace MedicalClinicRepositoryTest.Manager
         [TestClass]
         public class WhenGettingAPacient
         {
-            private readonly PacientManager _pacientManager = new PacientManager();
-            private Pacient _pacient;
+            private readonly PatientManager _patientManager = new PatientManager();
+            private Patient _patient;
 
             public WhenGettingAPacient()
             {
-                _pacient = new Pacient
+                _patient = new Patient
                 {
                     FirstName = "Andrei",
                     LastName = "Scutariu",
@@ -75,26 +76,26 @@ namespace MedicalClinicRepositoryTest.Manager
             [TestInitialize]
             public void Initialize()
             {
-                using (var tx = _pacientManager.Session.BeginTransaction())
+                using (var tx = _patientManager.Session.BeginTransaction())
                 {
-                    _pacientManager.Save(_pacient);
+                    _patientManager.Save(_patient);
                     tx.Commit();
                 }
-                _pacient = _pacientManager.GetById(_pacient.Id);
+                _patient = _patientManager.GetById(_patient.Id);
             }
 
             [TestMethod]
             public void ThenPacientIsLoaded()
             {
-                Assert.IsTrue(_pacient.Id > 0);
+                Assert.IsTrue(_patient.Id > 0);
             }
 
             [TestCleanup]
             public void Cleanup()
             {
-                using (var tx = _pacientManager.Session.BeginTransaction())
+                using (var tx = _patientManager.Session.BeginTransaction())
                 {
-                    _pacientManager.Delete(_pacient);
+                    _patientManager.Delete(_patient);
                     tx.Commit();
                 }
             }

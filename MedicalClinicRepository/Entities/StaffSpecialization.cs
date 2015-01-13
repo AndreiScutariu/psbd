@@ -7,5 +7,6 @@ namespace MedicalClinicRepository.Entities
         public virtual User User { get; set; } 
         public virtual Specialization Specialization { get; set; }
         public virtual DateTime CreatedDate { get; set; }
+        public virtual int Confirmed { get; set; }
     }
 }

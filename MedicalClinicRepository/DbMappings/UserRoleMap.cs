@@ -10,7 +10,6 @@ namespace MedicalClinicRepository.DbMappings
         {
             Table("USER_ROLE");
             Map(x => x.RoleName, "ROLE_NAME");
-            HasMany(x => x.Users).KeyColumns.Add("ROLE_ID", mapping => mapping.Name("ROLE_ID"));
         }
     }
 }

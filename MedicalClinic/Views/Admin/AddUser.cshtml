@@ -1,86 +1,90 @@
 ﻿@using System.Web.Mvc.Html
-@model MedicalClinic.Models.User.UserModel
+@model MedicalClinic.Models.Medic.UserModel
 
 @{
-    ViewBag.Title = "Medical Clinic - Add User";
+	ViewBag.Title = "Medical Clinic - Add User";
 }
 
+@Scripts.Render("~/bundles/jqueryval")
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("select").addClass("form-control");
-    });
+	$(document).ready(function () {
+		$("select").addClass("form-control");
+	});
 </script>
 
 <div class="jumbotron">
-    <p>Adauga un nou membru.</p>
-    @Html.ActionLink("Inapoi la pagina principala", "Index", "Admin", null, new { @class = "modal-link btn-primary btn" })
+	<p>Adauga un nou membru.</p>
+	@Html.ActionLink("Inapoi la pagina principala", "Home", "Admin", null, new { @class = "modal-link btn-primary btn" })
 </div>
 
-<div>
-    @using (Html.BeginForm("AddUser", "Admin", FormMethod.Post))
-    { 
-        @Html.AntiForgeryToken()
+<div class="col-lg-12">
+	<div class="col-md-8 col-md-offset-2">
+		@using (Html.BeginForm("AddUser", "Admin", FormMethod.Post))
+		{ 
+			@Html.AntiForgeryToken()
 
-        <div class="modal-body">
-            <div class="form-horizontal">
-                <div class="form-group">
-                    @Html.LabelFor(m => m.FirstName, new { @class = "col-lg-2 control-label" })
-                    <div class="col-lg-10">
-                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "Prenume" })
-                    </div>
-                    <span class="errorMessage">@Html.ValidationMessageFor(m => m.FirstName) </span>
-                </div>
+			<div class="modal-body">
+				<div class="form-horizontal">
+					<div class="form-group">
+						@Html.HiddenFor(m => m.Id)
+						@Html.LabelFor(m => m.FirstName, new { @class = "col-lg-2 control-label" })
+						<div class="col-lg-10">
+							@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "Prenume" })
+						</div>
+						<span class="errorMessage">@Html.ValidationMessageFor(m => m.FirstName) </span>
+					</div>
 
-                <div class="form-group">
-                    @Html.LabelFor(m => m.LastName, new { @class = "col-lg-2 control-label" })
-                    <div class="col-lg-10">
-                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Nume" })
-                    </div>
-                    <span class="errorMessage">@Html.ValidationMessageFor(m => m.LastName) </span>
-                </div>
+					<div class="form-group">
+						@Html.LabelFor(m => m.LastName, new { @class = "col-lg-2 control-label" })
+						<div class="col-lg-10">
+							@Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Nume" })
+						</div>
+						<span class="errorMessage">@Html.ValidationMessageFor(m => m.LastName) </span>
+					</div>
 
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-lg-2 control-label" })
-                    <div class="col-lg-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Adresa de email" })
-                    </div>
-                    <span class="errorMessage">@Html.ValidationMessageFor(m => m.Email) </span>
-                </div>
+					<div class="form-group">
+						@Html.LabelFor(m => m.Email, new { @class = "col-lg-2 control-label" })
+						<div class="col-lg-10">
+							@Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Adresa de email" })
+						</div>
+						<span class="errorMessage">@Html.ValidationMessageFor(m => m.Email) </span>
+					</div>
 
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-lg-2 control-label" })
-                    <div class="col-lg-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Parola" })
-                    </div>
-                    <span class="errorMessage">@Html.ValidationMessageFor(m => m.Password) </span>
-                </div>
+					<div class="form-group">
+						@Html.LabelFor(m => m.Password, new { @class = "col-lg-2 control-label" })
+						<div class="col-lg-10">
+							@Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Parola" })
+						</div>
+						<span class="errorMessage">@Html.ValidationMessageFor(m => m.Password) </span>
+					</div>
 
-                <div class="form-group">
-                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-lg-2 control-label" })
-                    <div class="col-lg-10">
-                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirmare parola" })
-                    </div>
-                    <span class="errorMessage">@Html.ValidationMessageFor(m => m.ConfirmPassword) </span>
-                </div>
-                
-                <div class="form-group">
-                    @Html.LabelFor(m => m.UserRoleId, new { @class = "col-lg-2 control-label" })
-                    <div class="col-lg-10">
-                       @Html.DropDownListFor(m => m.UserRoleId, new SelectList(
-                                              new List<Object>{ 
-                                                   new { value = 1 , text = "Administrator"  },
-                                                   new { value = 2 , text = "Medic" },
-                                                   new { value = 3 , text = "Asistent"}
-                                                }, "value", "text", 2))
-                    </div>
-                    <span class="errorMessage">@Html.ValidationMessageFor(m => m.UserRoleId) </span>
-                </div>
-            </div>
-        </div>
+					<div class="form-group">
+						@Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-lg-2 control-label" })
+						<div class="col-lg-10">
+							@Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirmare parola" })
+						</div>
+						<span class="errorMessage">@Html.ValidationMessageFor(m => m.ConfirmPassword) </span>
+					</div>
 
-        <div class="modal-footer">
-            @Html.ActionLink("Renunta", "Index", "Admin", null, new { @class = "btn btn-default" })
-            <button type="submit" id="approve-btn" class="btn btn-primary">Salveaza</button>
-        </div>
-    }
+					<div class="form-group">
+						@Html.LabelFor(m => m.UserRoleId, new { @class = "col-lg-2 control-label" })
+						<div class="col-lg-10">
+							@Html.DropDownListFor(m => m.UserRoleId, new SelectList(
+											  new List<Object>{ 
+												   new { value = 1 , text = "Administrator"  },
+												   new { value = 2 , text = "Medic" },
+												   new { value = 3 , text = "Asistent"}
+												}, "value", "text", 2))
+						</div>
+						<span class="errorMessage">@Html.ValidationMessageFor(m => m.UserRoleId) </span>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				@Html.ActionLink("Renunta", "Home", "Admin", null, new { @class = "btn btn-default" })
+				<button type="submit" id="approve-btn" class="btn btn-primary">Salveaza</button>
+			</div>
+		}
+	</div>
 </div>

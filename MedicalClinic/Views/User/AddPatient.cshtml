@@ -1,0 +1,93 @@
+﻿@using System.Web.Mvc.Html
+@model MedicalClinic.Models.Medic.Patient.PatientModel
+
+@{
+	ViewBag.Title = "Medical Clinic - Add User";
+}
+
+@Scripts.Render("~/bundles/jqueryval")
+
+<link href="~/Content/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" />
+<script src="~/Scripts/datetimepicker/jquery.datetimepicker.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+	    $("#datepicker").datetimepicker({
+	        dayOfWeekStart : 0,
+	        lang: 'ro',
+	        timepicker: false,
+	        format: 'm/d/Y'
+	    });
+	});
+</script>
+
+@Html.Partial("_Menu")
+<div class="page-header">
+	<h4 id="tables">Adauga un pacient</h4>
+</div>
+
+<div class="col-lg-12">
+	<div class="col-md-8 col-md-offset-2" id="formContent">
+		@using (Html.BeginForm("AddPatient", "User"))
+		{
+			@Html.AntiForgeryToken()
+
+			<div class="modal-body">
+				<div class="form-horizontal">
+					<div class="form-group">
+						@Html.HiddenFor(m => m.Id)
+						@Html.LabelFor(m => m.FirstName, new { @class = "col-lg-2 control-label" })
+						<div class="col-lg-10">
+							@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "Prenume" })
+						</div>
+						<span class="errorMessage">@Html.ValidationMessageFor(m => m.FirstName) </span>
+					</div>
+					
+					<div class="form-group">
+						@Html.LabelFor(m => m.LastName, new { @class = "col-lg-2 control-label" })
+						<div class="col-lg-10">
+							@Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Nume" })
+						</div>
+						<span class="errorMessage">@Html.ValidationMessageFor(m => m.LastName) </span>
+					</div>
+
+					<div class="form-group">
+						@Html.LabelFor(m => m.Email, new { @class = "col-lg-2 control-label" })
+						<div class="col-lg-10">
+							@Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Adresa de email" })
+						</div>
+						<span class="errorMessage">@Html.ValidationMessageFor(m => m.Email) </span>
+					</div>
+					
+					<div class="form-group">
+						@Html.LabelFor(m => m.PhoneNumber, new { @class = "col-lg-2 control-label" })
+						<div class="col-lg-10">
+							@Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", @placeholder = "Numar de telefon" })
+						</div>
+						<span class="errorMessage">@Html.ValidationMessageFor(m => m.PhoneNumber) </span>
+					</div>
+					
+					<div class="form-group">
+						@Html.LabelFor(m => m.PersonalId, new { @class = "col-lg-2 control-label" })
+						<div class="col-lg-10">
+							@Html.TextBoxFor(m => m.PersonalId, new { @class = "form-control", @placeholder = "Cod numeric personal" })
+						</div>
+						<span class="errorMessage">@Html.ValidationMessageFor(m => m.PersonalId) </span>
+					</div>
+					
+					<div class="form-group">
+						@Html.LabelFor(m => m.BirthDate, new { @class = "col-lg-2 control-label" })
+						<div class="col-lg-10">
+							@Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control", @id = "datepicker", @placeholder = "Data de nastere" })
+						</div>
+						<span class="errorMessage">@Html.ValidationMessageFor(m => m.BirthDate) </span>
+					</div>
+
+					<div class="modal-footer">
+						<button type="submit" id="approve-btn" class="btn btn-primary">Salveaza</button>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>

@@ -1,0 +1,63 @@
+﻿@using MedicalClinic.Models.Medic.Specializations
+@model SpecializationModel
+@Html.Partial("_Menu")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("select").addClass("form-control");
+
+        $("#submitSpecializationId").click(function () {
+            var specId = $("#SpecializationId option:selected").attr("value");
+            if (specId == undefined || specId == "") {
+                alert("Selecteaza o optiune valida");
+                return;
+            }
+            
+            $.ajax({
+                url: '@Url.Action("AddNewSpecialization", "User")',
+                data: { specializationId: specId },
+                success: function(data) {
+                    alert(data);
+                    window.location.reload();
+                }
+            });
+        });
+    });
+</script>
+
+<div class="page-header">
+    <h4>Specializarile tale:</h4>
+        <ul class="list-group">
+            @foreach (var spec in Model.ActualSpecializations)
+            {
+                <li class="list-group-item">
+                    @if (spec.Confirmed != 0)
+                    {
+                        <span class="badge" style="background-color:green"><b>Confirmat</b></span>
+                    }
+                    else
+                    {
+                        <span class="badge" style="background-color:red"><b>Neconfirmat</b></span>
+                    }
+                    <span class="badge">Adaugat la: <b>@spec.CreatedDate</b></span>
+                    @spec.Description
+                </li>
+            }
+        </ul>
+</div>
+
+<div class="page-header">
+    <h4 id="tables">Trimitere cerere pentru o alta specializare:</h4>
+</div>
+
+<div class="col-lg-12">
+    <div class="col-md-12" id="formContent">
+        @Html.DropDownList("SpecializationId", new SelectList(
+                               SpecializationHelper.GetAllSpecializations(),
+                               "value", "text"), "Selecteaza specializare")
+        
+        <div class="modal-footer">
+            <button id="submitSpecializationId" class="btn btn-primary">Trimitere cerere</button>
+        </div>
+    </div>
+</div>

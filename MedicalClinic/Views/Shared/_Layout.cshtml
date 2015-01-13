@@ -1,50 +1,45 @@
 ﻿<html lang="en">
-    
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title </title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
 
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", false)
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title </title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
 
-        <link rel="stylesheet"  type="text/css" href="~/Content/bootstrap/css/bootstrap.css"/>
-        <script type="text/javascript" src="~/Scripts/bootstrap/js/bootstrap.js"></script>
-        <link rel="stylesheet"  type="text/css" href="~/Content/bootstrap/yeti/bootstrap.css"/>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/metro/css")
+    @RenderSection("scripts", false)
 
-    </head>
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap/css/bootstrap.css" />
+    <script type="text/javascript" src="~/Scripts/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap/yeti/bootstrap.css" />
 
-    <body>
-        <div class="container">
-            @if (@ViewBag.NavBar != null)
-            {
-                <header>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </header>
-            }
-            
-            <div>
-                @RenderSection("featured",  false)
-                <section>
-                    @RenderBody()
-                </section>
-            </div>
-            
-            <br/>
+</head>
 
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Medical Center Project</p>
-            </footer>
+<body>
+    <div class="container">
+
+        @{
+            ViewBag.Title = "Medical Clinic";
+        }
+
+        <div>
+            @RenderSection("featured", false)
+            <section>
+                @RenderBody()
+            </section>
         </div>
-        
-    </body>
+
+        <br />
+
+        <footer>
+            <br />
+            <p>&copy; @DateTime.Now.Year - Medical Center Project</p>
+        </footer>
+    </div>
+
+</body>
 </html>

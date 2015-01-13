@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MedicalClinicExceptions;
 using MedicalClinicRepository.Entities;
 using MedicalClinicRepository.Factory;
 using NHibernate;
@@ -10,7 +11,7 @@ namespace MedicalClinicRepository.Managers
         ISession Session { get; }
         int Save(T entity);
         T Update(T entity);
-        T SaveOrUpdate(T entity);
+        int SaveOrUpdate(T entity);
         T GetById(int id);
         T LoadById(int id);
         IList<T> GetAll();
@@ -26,40 +27,89 @@ namespace MedicalClinicRepository.Managers
 
         public virtual int Save(T entity)
         {
-            Session.Save(entity);
-            return entity.Id;
+            try
+            {
+                Session.Save(entity);
+                return entity.Id;
+            }
+            catch
+            {
+                throw new McDatabaseQueryException();
+            }
         }
 
         public virtual T Update(T entity)
         {
-            Session.Update(entity);
-            return entity;
+            try
+            {
+                Session.Update(entity);
+                return entity;
+            }
+            catch
+            {
+                throw new McDatabaseQueryException();
+            }
         }
 
-        public virtual T SaveOrUpdate(T entity)
+        public virtual int SaveOrUpdate(T entity)
         {
-            Session.SaveOrUpdate(entity);
-            return entity;
+            try
+            {
+                Session.SaveOrUpdate(entity);
+                return entity.Id;
+            }
+            catch
+            {
+                throw new McDatabaseQueryException();
+            }
         }
 
         public virtual T GetById(int id)
         {
-            return Session.Get<T>(id);
+            try
+            {
+                return Session.Get<T>(id);
+            }
+            catch
+            {
+                throw new McDatabaseQueryException();
+            }
         }
 
         public virtual T LoadById(int id)
         {
-            return Session.Load<T>(id);
+            try
+            {
+                return Session.Load<T>(id);
+            }
+            catch
+            {
+                throw new McDatabaseQueryException();
+            }
         }
 
         public virtual IList<T> GetAll()
         {
-            return Session.CreateCriteria<T>().List<T>();
+            try
+            {
+                return Session.CreateCriteria<T>().List<T>();
+            }
+            catch
+            {
+                throw new McDatabaseQueryException();
+            }
         }
 
         public virtual void Delete(T entity)
         {
-            Session.Delete(entity);
+            try
+            {
+                Session.Delete(entity);
+            }
+            catch
+            {
+                throw new McDatabaseQueryException();
+            }
         }
     }
 }

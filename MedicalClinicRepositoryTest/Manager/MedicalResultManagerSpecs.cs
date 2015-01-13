@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MedicalClinicRepositoryTest.Manager
 {
+    [TestClass]
     public class MedicalResultManagerSpecs
     {
         [TestClass]
@@ -14,7 +15,7 @@ namespace MedicalClinicRepositoryTest.Manager
         {
             private readonly Appointment _appointment;
             private readonly User _user;
-            private readonly Pacient _pacient;
+            private readonly Patient _patient;
             private readonly Diagnostic _diagnostic1;
             private readonly Diagnostic _diagnostic2;
             private readonly MedicalResultDiagnostic _medicalResultDiagnostic1;
@@ -28,7 +29,7 @@ namespace MedicalClinicRepositoryTest.Manager
             private readonly DiagnosticManager _diagnosticManager = new DiagnosticManager();
             private readonly UserRoleManager _userRoleManager = new UserRoleManager();
             private readonly UserManager _userManager = new UserManager();
-            private readonly PacientManager _pacientManager = new PacientManager();
+            private readonly PatientManager _patientManager = new PatientManager();
             private readonly AppointmentManager _appointmentManager = new AppointmentManager();
             private readonly SpecilizationManager _specilizationManager = new SpecilizationManager();
             private readonly StaffSpecializationManager _staffSpecializationManager = new StaffSpecializationManager();
@@ -47,7 +48,7 @@ namespace MedicalClinicRepositoryTest.Manager
                     UserRole = doctor
                 };
 
-                _pacient = new Pacient
+                _patient = new Patient
                 {
                     FirstName = "Andrei",
                     LastName = "Scutariu",
@@ -57,9 +58,9 @@ namespace MedicalClinicRepositoryTest.Manager
                     BirthDate = new DateTime(1992, 12, 4)
                 };
 
-                using (var tx = _pacientManager.Session.BeginTransaction())
+                using (var tx = _patientManager.Session.BeginTransaction())
                 {
-                    _pacientManager.Save(_pacient);
+                    _patientManager.Save(_patient);
                     _userManager.Save(_user);
                     tx.Commit();
                 }
@@ -81,7 +82,7 @@ namespace MedicalClinicRepositoryTest.Manager
                 {
                     Description = "Test Description",
                     AppointmentDate = DateTime.Now,
-                    Pacient = _pacientManager.GetById(_pacient.Id),
+                    Patient = _patientManager.GetById(_patient.Id),
                     User = _userManager.GetById(_user.Id)
                 };
 
@@ -197,9 +198,9 @@ namespace MedicalClinicRepositoryTest.Manager
                     tx.Commit();
                 }
 
-                using (var tx = _pacientManager.Session.BeginTransaction())
+                using (var tx = _patientManager.Session.BeginTransaction())
                 {
-                    _pacientManager.Delete(_pacient);
+                    _patientManager.Delete(_patient);
                     _userManager.Delete(_user);
                     tx.Commit();
                 }
@@ -213,13 +214,12 @@ namespace MedicalClinicRepositoryTest.Manager
             }
         }
 
-
         [TestClass]
         public class WhenGettingAnMedicalResult
         {
             private readonly Appointment _appointment;
             private readonly User _user;
-            private readonly Pacient _pacient;
+            private readonly Patient _patient;
             private readonly Diagnostic _diagnostic1;
             private readonly Diagnostic _diagnostic2;
             private readonly MedicalResultDiagnostic _medicalResultDiagnostic1;
@@ -231,7 +231,7 @@ namespace MedicalClinicRepositoryTest.Manager
             private readonly DiagnosticManager _diagnosticManager = new DiagnosticManager();
             private readonly UserRoleManager _userRoleManager = new UserRoleManager();
             private readonly UserManager _userManager = new UserManager();
-            private readonly PacientManager _pacientManager = new PacientManager();
+            private readonly PatientManager _patientManager = new PatientManager();
             private readonly AppointmentManager _appointmentManager = new AppointmentManager();
 
             private const string TestIllness = @"Prost la cap";
@@ -249,7 +249,7 @@ namespace MedicalClinicRepositoryTest.Manager
                     UserRole = doctor
                 };
 
-                _pacient = new Pacient
+                _patient = new Patient
                 {
                     FirstName = "Andrei",
                     LastName = "Scutariu",
@@ -259,9 +259,9 @@ namespace MedicalClinicRepositoryTest.Manager
                     BirthDate = new DateTime(1992, 12, 4)
                 };
 
-                using (var tx = _pacientManager.Session.BeginTransaction())
+                using (var tx = _patientManager.Session.BeginTransaction())
                 {
-                    _pacientManager.Save(_pacient);
+                    _patientManager.Save(_patient);
                     _userManager.Save(_user);
                     tx.Commit();
                 }
@@ -270,7 +270,7 @@ namespace MedicalClinicRepositoryTest.Manager
                 {
                     Description = "Test Description",
                     AppointmentDate = DateTime.Now,
-                    Pacient = _pacientManager.GetById(_pacient.Id),
+                    Patient = _patientManager.GetById(_patient.Id),
                     User = _userManager.GetById(_user.Id)
                 };
 
@@ -415,3 +415,4 @@ namespace MedicalClinicRepositoryTest.Manager
         }
     }
 }
+

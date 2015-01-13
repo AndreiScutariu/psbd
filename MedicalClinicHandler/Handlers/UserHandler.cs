@@ -2,6 +2,8 @@
 using System.Linq;
 using MedicalClinicHandler.Dto;
 using MedicalClinicHandler.DtoEntityMapper;
+using MedicalClinicHandler.Utils;
+using MedicalClinicRepository.Entities;
 using MedicalClinicRepository.Managers;
 
 namespace MedicalClinicHandler.Handlers
@@ -12,6 +14,9 @@ namespace MedicalClinicHandler.Handlers
         IEnumerable<UserDto> GetAllUsers();
         void DeleteById(int userId);
         UserDto GetById(int userId);
+        UserDto GetByEmail(string username);
+        UserDto GetByEmailAndPassword(string email, string password);
+        void ConfirmSpecializationForUser(int userId, int specializationId);
     }
 
     public class UserHandler : IUserHandler
@@ -27,8 +32,9 @@ namespace MedicalClinicHandler.Handlers
         {
             using (var tx = _userManager.Session.BeginTransaction())
             {
-                var user = UserMapper.GetEntity(userDto);
-                userDto.Id = _userManager.Save(user);
+                var user = _userManager.GetById(userDto.Id) ?? new User();
+                UserMapper.SetEntity(user, userDto);
+                userDto.Id = _userManager.SaveOrUpdate(user);
                 tx.Commit();
             }
             return userDto;
@@ -36,6 +42,11 @@ namespace MedicalClinicHandler.Handlers
 
         public IEnumerable<UserDto> GetAllUsers()
         {
+            foreach (var user in _userManager.GetAll())
+            {
+                _userManager.Session.Evict(user.StaffSpecializations);
+                _userManager.Session.Evict(user);
+            }
             return _userManager.GetAll().Select(UserMapper.GetDto);
         }
 
@@ -46,7 +57,26 @@ namespace MedicalClinicHandler.Handlers
 
         public UserDto GetById(int userId)
         {
+            var obj = _userManager.GetById(userId);
+            _userManager.Session.Evict(obj.StaffSpecializations);
+            _userManager.Session.Evict(obj);
+
             return UserMapper.GetDto(_userManager.GetById(userId));
+        }
+
+        public UserDto GetByEmail(string username)
+        {
+            return UserMapper.GetDto(_userManager.GetByEmail(username));
+        }
+
+        public UserDto GetByEmailAndPassword(string email, string password)
+        {
+            return UserMapper.GetDto(_userManager.GetByEmailAndPassword(email, EncryptString.DoHash(password)));
+        }
+
+        public void ConfirmSpecializationForUser(int userId, int specializationId)
+        {
+            _userManager.ConfirmSpecializationForUser(userId, specializationId);
         }
     }
 }

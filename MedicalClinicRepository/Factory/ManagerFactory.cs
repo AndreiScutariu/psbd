@@ -1,4 +1,4 @@
-﻿using MedicalClinicRepository.Entities;
+﻿using MedicalClinicRepository.Entities; 
 using MedicalClinicRepository.Managers;
 
 namespace MedicalClinicRepository.Factory

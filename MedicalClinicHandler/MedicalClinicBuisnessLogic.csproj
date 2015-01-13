@@ -48,14 +48,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DtoEntityMapper\AppointmentMapper.cs" />
+    <Compile Include="DtoEntityMapper\DiagnosticMapper.cs" />
+    <Compile Include="DtoEntityMapper\SpecializationMapper.cs" />
+    <Compile Include="DtoEntityMapper\PatientMapper.cs" />
     <Compile Include="DtoEntityMapper\RoleMapper.cs" />
+    <Compile Include="Dto\AppointmentDto.cs" />
+    <Compile Include="Dto\DiagnosticDto.cs" />
+    <Compile Include="Dto\MessageDto.cs" />
+    <Compile Include="Dto\SpecializationDto.cs" />
+    <Compile Include="Dto\PatientDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
     <Compile Include="Dto\UserRoleDto.cs" />
     <Compile Include="DtoEntityMapper\UserMapper.cs" />
+    <Compile Include="Handlers\AppointmentHandler.cs" />
+    <Compile Include="Handlers\MedicalResultHandler.cs" />
+    <Compile Include="Handlers\DiagnosticHadler.cs" />
+    <Compile Include="Handlers\SpecializationHadler.cs" />
+    <Compile Include="Handlers\PatientHandler.cs" />
     <Compile Include="Handlers\RoleHadler.cs" />
     <Compile Include="Handlers\UserHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\Encrypt.cs" />
+    <Compile Include="Utils\EncryptString.cs" />
     <Compile Include="Utils\InitMapper.cs" />
   </ItemGroup>
   <ItemGroup>

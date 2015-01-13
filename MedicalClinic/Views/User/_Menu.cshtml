@@ -1,0 +1,41 @@
+﻿
+<div class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Medical Clinic - @ViewBag.FullName</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-inverse-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="@Url.Action("Home")">Acasa</a></li>
+            <li><a href="@Url.Action("Specializations")">Specializarile mele</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Programari si Pacienti <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="@Url.Action("AddNewAppointment")">Adauga programare noua</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Pacient</li>
+                    <li><a href="@Url.Action("AddPatient")">Adauga pacient</a></li>
+                    <li><a href="@Url.Action("Patients")">Vezi pacienti</a></li>
+                    <li class="dropdown-header">Diagnostice</li>
+                    <li><a href="@Url.Action("ViewOtherAppointments")">Vezi diagnostice ale altor medici</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Setari<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="@Url.Action("DownloadHelpFile")">Ajutor</a></li>
+                    <li class="divider"></li>
+                    <li><a href="@Url.Action("Logout", "Home")">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
